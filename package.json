@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node dist/app"
   },
+  "engines": {
+    "node": "12"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
