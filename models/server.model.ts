@@ -1,11 +1,12 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 
+import userRoutes from '../routes/user.routes';
+import dbConnection from '../db/config';
+
 interface Path {
     usuarios: string
 }
-
-import userRoutes from '../routes/user.routes';
 
 class Server {
     private app: Application;
@@ -14,15 +15,20 @@ class Server {
 
     constructor(){
         this.app = express();
-        this.port = process.env.PORT || '8080';
+        this.port = process.env.PORT || '8000';
         this.paths = {
             usuarios: '/api/usuarios'
         }
 
         this.listen();
+        this.conectarDB();
         this.middlewares();
         this.routes();
 
+    }
+
+    async conectarDB(){
+        await dbConnection();
     }
 
     routes(){
