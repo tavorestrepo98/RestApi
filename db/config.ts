@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const dbConnection = async() => {
 
     try {   
-        await mongoose.connect(process.env.MONGODB_CNN, {
+        await mongoose.connect('mongodb+srv://tavo:tavo1798@curso-node.htl30.mongodb.net/cafeDB', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true,
